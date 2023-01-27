@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import Image from './components/Image.vue'
 
 const title = ref("Template Syntax")
@@ -15,11 +15,31 @@ function toggleColor() {
   textColor.value = (textColor.value == 'blue') ? "red" : "blue"
 }
 
-const disableButton = ref(false)
+const currentEvent = ref("click")
 
-function toggleColorButton() {
-  disableButton.value = !disableButton.value
+function changeEvent() {
+  currentEvent.value = (currentEvent.value === "click") ? "dblclick" : "click"
 }
+
+const fontColor = reactive({ color: 'blue' })
+const fontSize = reactive({ 'font-size': '20px' })
+
+function changeFont() {
+  fontColor.color = (fontColor.color === 'red') ? 'green' : 'red';
+  fontSize['font-size'] = (fontSize['font-size'] === '20px') ? '30px' : '20px';
+}
+
+
+const items = reactive([3,5,12])
+
+function addItem() {
+  items.push(Math.floor(Math.random() * 20))
+}
+
+const numberOfItems = computed(() => {
+  return `Number of items: ${items.length}`
+})
+
 
 </script>
 
@@ -47,13 +67,38 @@ function toggleColorButton() {
   <div class="row">
     <div class="col-md-10 offset-md-1">
       <p>
-        <button v-bind:disabled="disableButton" class="me-2" @click="toggleColor()">Toggle</button>
-        <button @click="toggleColorButton()" class="me-2">{{ disableButton? "Enable": "Disable" }}</button>
-
+        <button @click="toggleColor" class="me-2">Toggle Color</button>
         <span v-bind:class="textColor">First Item</span>
       </p>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <p>
+        <button @[currentEvent]="changeEvent" class="me-2">{{ currentEvent }}</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <p>
+        <button @click="changeFont" class="me-2">Change Font</button>
+        <span :style="[fontColor, fontSize]">Hello</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <p>
+        <button @click="addItem" class="me-2">Add Item</button>
+        <span>{{ numberOfItems }}</span>
+      </p>
+    </div>
+  </div>
+  
 
 </template>
 
