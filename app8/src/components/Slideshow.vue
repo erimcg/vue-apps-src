@@ -13,12 +13,8 @@ const collection = reactive({
   media: {},
 })
 
-const photoCache = reactive({
-  photos: []
-})
-
 const photo = reactive({
-  name: "",
+  title: "",
   photographer: "",
   photographer_url: "",
   url: ""
@@ -47,46 +43,29 @@ async function loadImage(op) {
   prevButtonDisabled.value = ((currentPhotoIndex - 1) >= 0) ? false : true
   nextButtonDisabled.value = ((currentPhotoIndex + 1) < collection.media.length) ? false : true
 
-  console.log(photoCache.photos[currentPhotoIndex])
+  console.log("getting photo from cache")
+  console.log(collection.media[currentPhotoIndex])
 
-  if (photoCache.photos[currentPhotoIndex] == undefined) {
-    let photoInfo = collection.media[currentPhotoIndex]
-    console.log(photoInfo)
+  photo.title = collection.media[currentPhotoIndex].alt
+  photo.photographer = collection.media[currentPhotoIndex].photographer
+  photo.photographer_url = collection.media[currentPhotoIndex].photographer_url
+  photo.url = collection.media[currentPhotoIndex].src.tiny
 
-    let result = await client.photos.show({ id: photoInfo.id })
-    console.log(result)
-
-    photo.name = result.alt
-    photo.photographer = result.photographer
-    photo.photographer_url = result.photographer_url
-    photo.url = result.src.tiny
-
-    // cache the photo
-    photoCache.photos[currentPhotoIndex] = Object.assign({}, photo)
-  }
-  else {
-    console.log("getting from cache")
-
-    photo.name = photoCache.photos[currentPhotoIndex].name
-    photo.photographer = photoCache.photos[currentPhotoIndex].photographer
-    photo.photographer_url = photoCache.photos[currentPhotoIndex].photographer_url
-    photo.url = photoCache.photos[currentPhotoIndex].url
-
-    console.log(photoCache.photos[currentPhotoIndex])
-
-    console.log(photo)
-  }
+  console.log(photo)
 }
 
 async function getCollection() {
   let result = await client.collections.all({ per_page: 1 })
-  const id = result.collections[0].id
-
-  result = await client.collections.media({ id: id, type: 'photos', per_page: 6 })
+  console.log("collections.all")
   console.log(result)
 
-  collection.media = result.media
-  console.log(collection.media)
+  const id = result.collections[0].id
+
+  result = await client.collections.media({ id, type: 'photos', per_page: 6 })
+  console.log("collection.media")
+  console.log(result)
+
+  collection.media = result.media  // save photos
 }
 
 onMounted(() => {
@@ -114,8 +93,8 @@ onMounted(() => {
     </div>
 
     <div id="photo-info">
-      <span>{{ photo.name }}</span><br>
-      <span>Photographer: 
+      <span>{{ photo.title }}</span><br>
+      <span>Photographer:
         <a :href="photo.photographer_url" target="_blank">
           {{ photo.photographer }}
         </a></span>
@@ -131,7 +110,6 @@ onMounted(() => {
 </template>
 
 <style>
-
 #slideshow {
   display: flex;
   flex-direction: column;
@@ -154,7 +132,8 @@ button {
   border-radius: 15px;
 }
 
-#photo-info, #photo img {
+#photo-info,
+#photo img {
   width: 400px;
 }
 
@@ -173,5 +152,4 @@ button {
   width: 30px;
   margin-right: 5px;
 }
-
 </style>
