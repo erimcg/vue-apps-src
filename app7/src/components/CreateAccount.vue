@@ -73,7 +73,7 @@ function submit() {
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <form id="form">
+                <form>
                     <h3>Create Account</h3>
                     <fieldset>
                         <label for="firstName" class="form-label">First name</label>
@@ -141,7 +141,9 @@ function submit() {
                                 @change="loadPreviewCanvas($event)">
                         </div>
                     </fieldset>
-                    <button id="submitButton" class="btn" type="button" @click="submit">Submit</button>
+                    <div id="buttonContainer">
+                        <button id="submitButton" class="btn" type="button" @click="submit">Submit</button>
+                    </div>
                 </form>
             </div>
             <div class="col-6">
@@ -182,11 +184,10 @@ function submit() {
 
 <style>
 .container {
-    margin: 80px 0 0 80px;
-    ;
+    padding: 10px 20px 80px 20px;
 }
 
-#form {
+form {
     padding: 20px 20px 40px 20px;
     background-color: #FF0D9D;
 }
@@ -211,11 +212,6 @@ input[type="checkbox"] {
     margin-left: 15px;
 }
 
-#submitButton {
-    margin-top: 20px;
-    background-color: #12FF00;
-}
-
 #preview-img {
     width: 100px;
     height: 100px;
@@ -235,5 +231,15 @@ figure {
 
 .fav {
     margin-left: 20px;
+}
+
+#buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#submitButton {
+    margin-top: 20px;
+    background-color: #12FF00;
 }
 </style>

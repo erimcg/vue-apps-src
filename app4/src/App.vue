@@ -1,8 +1,9 @@
 <script setup>
+import Logo from './components/Logo.vue'
 import { ref } from 'vue'
 import { reactive } from 'vue'
 
-const title = ref("Reactivity")
+const title = ref("Vue's Reactive State")
 
 const count = ref(1)
 console.log(count.value)
@@ -73,39 +74,42 @@ function updateTitle2() {
 </script>
 
 <template>
-  <h1 class="my-5">{{ title }}</h1>
 
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
+  <Logo />
 
-      <p class="my-5">
-        <button class="btn btn-primary" @click="increment"> Increment </button>
-        <span class="mx-2 fs-5"> {{ count }} </span>
-      </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h1>{{ title }}</h1>
 
-      <p class="my-5">
-        <button class="btn btn-primary me-1" @click="changeAll"> Change All </button>
-        <button class="btn btn-primary" @click="changeState"> Change State </button>
-        <span class="mx-2 fs-5">
-          {{ addr.street }}
-          {{ addr.city }}, {{ addr.state }}
-        </span>
-      </p>
+        <p class="my-5">
+          <button class="btn btn-primary" @click="increment"> Increment </button>
+          <span class="mx-2 fs-5"> {{ count }} </span>
+        </p>
 
-      <p class="my-5">
-        <button class="btn btn-primary" @click="toggleName"> Toggle </button>
-        <span class="mx-2 fs-5">
-          {{ "M." + name.first.value }}, {{ name.last.value }}
-        </span>
-      </p>
+        <p class="my-5">
+          <button class="btn btn-primary me-1" @click="changeAll"> Change All </button>
+          <button class="btn btn-primary" @click="changeState"> Change State </button>
+          <span class="mx-2 fs-5">
+            {{ addr.street }}
+            {{ addr.city }}, {{ addr.state }}
+          </span>
+        </p>
 
-      <p class="my-5">
-        <button class="btn btn-primary me-1" @click="updateTitle"> No Update </button>
-        <button class="btn btn-primary" @click="updateTitle2"> Update </button> <br>
+        <p class="my-5">
+          <button class="btn btn-primary" @click="toggleName"> Toggle </button>
+          <span class="mx-2 fs-5">
+            {{ "M." + name.first.value }}, {{ name.last.value }}
+          </span>
+        </p>
+
+        <p class="my-5">
+          <button class="btn btn-primary me-1" @click="updateTitle"> No Update </button>
+          <button class="btn btn-primary" @click="updateTitle2"> Update </button> <br>
 
         <ul class="mx-2 fs-5">
           <li>
-            Song: {{  song.title }}
+            Song: {{ song.title }}
           </li>
           <li>
             Artists: {{ song.artist }},
@@ -114,8 +118,9 @@ function updateTitle2() {
             Producers: {{ song.producer[0] }}, {{ song.producer[1] }}
           </li>
         </ul>
-      </p>
+        </p>
 
+      </div>
     </div>
   </div>
 </template>

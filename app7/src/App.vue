@@ -1,9 +1,11 @@
 <script setup>
-    import CreateAccount from './CreateAccount.vue'
+    import CreateAccount from './components/CreateAccount.vue'
+    import Logo from './components/Logo.vue'
 </script>
 
 <template>
-   <CreateAccount />
+    <Logo />
+    <CreateAccount />
 </template>
 
 <style>

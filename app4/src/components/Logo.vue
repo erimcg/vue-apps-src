@@ -2,7 +2,7 @@
 <template>
   <div id="logo">
     <div id="title">Vue</div>
-    <div id="subtitle">Watchers</div>
+    <div id="subtitle">Reactive State</div>
     <img alt="Vue logo" src="../assets/vueLogo.png" />
   </div>
 </template>
