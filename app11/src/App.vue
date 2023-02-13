@@ -6,9 +6,12 @@
 </script>
 
 <template>
-    <RefExp1 />
-    <RefExp2 />
-    <RefExp3 />
+    <div class="container mt-5">
+        <h3>Watch Experiments</h3>
+        <RefExp1 />
+        <RefExp2 />
+        <RefExp3 />
+    </div>
 </template>
 
 <style>

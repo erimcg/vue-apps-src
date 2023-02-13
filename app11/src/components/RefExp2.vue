@@ -23,6 +23,13 @@
 </script>
 
 <template>
+    <h4>Experiment 2</h4>
+    <p>Both of the input elements have ref attributes.  When the button is pressed
+        the references stored in the refs are swapped, thus triggering a watcher on
+        the first ref.  The watcher set the input element's value attribute to the 
+        name of the ref.
+    </p>
+
     <input ref="input1" type="text" />
     <input ref="input2" type="text" />
     <button @click="createNewElm" type="button" >Press</button>
