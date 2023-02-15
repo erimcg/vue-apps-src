@@ -1,0 +1,14 @@
+{
+  "link1": {
+    "title": "tom's hardware",
+    "url": "https://www.tomshardware.com/best-picks"
+  },
+  "link2": {
+    "title": "newegg",
+    "url": "https://newegg.com"
+  },
+  "link3": {
+    "title": "tiger direct",
+    "url": "https://tigerdirect.com"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "link1": {
+    "title": "techradar",
+    "url": "https://www.techradar.com"
+  },
+  "link2": {
+    "title": "tech crunch",
+    "url": "https://techcrunch.com"
+  },
+  "link3": {
+    "title": "reddit",
+    "url": "https://www.reddit.com"
+  }
+}
