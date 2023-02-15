@@ -9,8 +9,8 @@
 
     const display = ref(true)
 
-    function showLinks() {
-        display.value = (display.value) ? false : true;
+    function toggleLinks() {
+        display.value = !display.value;
     }
 
 </script>
@@ -30,7 +30,7 @@
 
             <OnMountedLinks />
         </div>
-        <button id="showLinks" type="button" @click="showLinks">Show Links</button>
+        <button id="showLinks" type="button" @click="toggleLinks">Toggle Links</button>
     </main>
 
 </template>
