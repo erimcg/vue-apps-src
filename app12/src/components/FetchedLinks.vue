@@ -4,7 +4,7 @@
     
     const websites = reactive({})
 
-    websites.value = await DataStore.getWebsites("/links.json")
+    websites.value = await DataStore.getWebsites("./links.json")
 
     function pressMe() {
         if (websites.value.link4) {

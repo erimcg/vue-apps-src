@@ -5,7 +5,7 @@
     const websites = reactive({})
 
     onMounted(async () => {
-        websites.value = await DataStore.getWebsites("/links2.json")
+        websites.value = await DataStore.getWebsites("./links2.json")
     })
 
 </script>
