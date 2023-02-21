@@ -21,7 +21,8 @@ const address5 = ref('')
 
 const info6 = ref({
   name: 'Gretchen',
-  address: ''
+  address: '',
+  file: 'chick.png'
 })
 
 function addRecord5() {
@@ -117,6 +118,10 @@ section {
 
 label {
   margin: 0 0 0 10px;
+}
+
+img {
+  width: 30px;
 }
 
 button {
