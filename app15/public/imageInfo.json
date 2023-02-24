@@ -1,0 +1,37 @@
+{
+    "image1": {
+        "label": "Monkey",
+        "imageURL": "images/monkey.png",
+        "audioURL": "audio/monkey-squawk.mp3"
+    },
+    "image2": {
+        "label": "Seal",
+        "imageURL": "images/seal.png",
+        "audioURL": "audio/seal-bark.mp3"
+    },
+    "image3": {
+        "label": "Bear",
+        "imageURL": "images/bear.png",
+        "audioURL": "audio/black-bear-roar.mp3"
+    },
+    "image4": {
+        "label": "Leopard",
+        "imageURL": "images/leopard.png",
+        "audioURL": "audio/leopard-growls.mp3"
+    },
+    "image5": {
+        "label": "Wolf",
+        "imageURL": "images/wolf.png",
+        "audioURL": "audio/wolves-howling.mp3"
+    },
+    "image6": {
+        "label": "Puppy",
+        "imageURL": "images/puppy.png",
+        "audioURL": "audio/puppy-barking.mp3"
+    },
+    "image7": {
+        "label": "Mouse",
+        "imageURL": "images/mouse.png",
+        "audioURL": "audio/mouse-squeak.mp3"
+    }
+}
