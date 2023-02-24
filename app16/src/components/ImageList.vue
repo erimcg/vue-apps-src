@@ -1,16 +1,16 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const props = defineProps(['infoURL'])
 
-let items = {}
+let items = ref({})
 
 onMounted(async () => {
-    console.log("test")
+    console.log("on mounted") 
     let response = await fetch(props.infoURL)
 
     if (response.status == 200) {
-        items = await response.json()
+        items.value = await response.json()
         console.log(items)
     }
 })
@@ -20,7 +20,10 @@ onMounted(async () => {
 <template>
     <div id="container">
         <div id="card" v-for="item in items">
-            <slot name="content" v-bind="item"></slot>
+            <slot
+                :label="item.label" 
+                :imageURL="item.imageURL" 
+                :audioURL="item.audioURL"></slot>
         </div>
     </div>
 </template>

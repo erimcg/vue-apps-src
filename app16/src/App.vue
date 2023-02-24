@@ -3,15 +3,15 @@ import ImageList from '../../app16/src/components/ImageList.vue';
 </script>
 
 <template>
+
     <ImageList infoURL="imageInfo.json">
-        <template #content="{ label, imageURL, audioURL }">
+        <template v-slot="{ label, imageURL, audioURL }">
             <h3> {{ label }}</h3>
-
             <img :src="`${imageURL}`" />
-
             <audio :src="`${audioURL}`" controls></audio>
         </template>
     </ImageList>
+    
 </template>
 
 <style>
