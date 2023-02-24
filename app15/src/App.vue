@@ -25,17 +25,17 @@ function swapSlots() {
 
         <ImageCard1>
             <h3>{{ imageInfo.image1.label }}</h3>
-            <img ref="image" :src="`${imageInfo.image1.imageURL}`" />
-            <audio ref="audio" :src="`${imageInfo.image1.audioURL}`" controls></audio>
+            <img :src="`${imageInfo.image1.imageURL}`" />
+            <audio :src="`${imageInfo.image1.audioURL}`" controls></audio>
         </ImageCard1>
 
         <ImageCard2>
             <template v-slot:audio>
-                <audio ref="audio" :src="`${imageInfo.image2.audioURL}`" controls></audio>
+                <audio :src="`${imageInfo.image2.audioURL}`" controls></audio>
             </template>
 
             <template v-slot:default>
-                <img ref="image" :src="`${imageInfo.image2.imageURL}`" />
+                <img :src="`${imageInfo.image2.imageURL}`" />
             </template>
 
             <template v-slot:label>
@@ -45,11 +45,11 @@ function swapSlots() {
 
         <ImageCard2>
             <template #audio>
-                <audio ref="audio" :src="`${imageInfo.image3.audioURL}`" controls></audio>
+                <audio :src="`${imageInfo.image3.audioURL}`" controls></audio>
             </template>
 
             <template #default>
-                <img ref="image" :src="`${imageInfo.image3.imageURL}`" />
+                <img :src="`${imageInfo.image3.imageURL}`" />
             </template>
 
             <template #label>
@@ -59,10 +59,10 @@ function swapSlots() {
 
         <ImageCard2>
             <template #audio>
-                <audio ref="audio" :src="`${imageInfo.image4.audioURL}`" controls></audio>
+                <audio :src="`${imageInfo.image4.audioURL}`" controls></audio>
             </template>
 
-            <img ref="image" :src="`${imageInfo.image4.imageURL}`" />
+            <img :src="`${imageInfo.image4.imageURL}`" />
 
             <template #label>
                 <h3>{{ imageInfo.image4.label }}</h3>
@@ -71,10 +71,10 @@ function swapSlots() {
 
         <ImageCard2>
             <template #[firstSlot]>
-                <audio ref="audio" :src="`${imageInfo.image5.audioURL}`" controls></audio>
+                <audio :src="`${imageInfo.image5.audioURL}`" controls></audio>
             </template>
 
-            <img ref="image" :src="`${imageInfo.image5.imageURL}`" />
+            <img :src="`${imageInfo.image5.imageURL}`" />
             <button type="button" @click="swapSlots">Swap Slots</button>
 
             <template #[secondSlot]>
