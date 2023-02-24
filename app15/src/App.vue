@@ -94,7 +94,7 @@ function swapSlots() {
             <template #label="labelProps">
                 <h3>{{ labelProps.text }} {{ imageInfo.image7.label }}</h3>
             </template>
-
+            
             <img :src="`${imageInfo.image7.imageURL}`" />
 
             <template #audio>
