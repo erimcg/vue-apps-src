@@ -48,7 +48,7 @@ const bd5 = ref(null)
     <div demo>
       <button type="button" @click="bd4.loadBalls">Start</button>
       <div balldrop>
-        <BallDrop ref="bd4" vClass="v200x200" bClass="grey-box" :delay=1000 :numBalls=25 clipImage="/images/monkey.png" />
+        <BallDrop ref="bd4" vClass="v200x200" bClass="grey-box" :delay=1000 :numBalls=25 clipImage="images/monkey.png" />
       </div>
     </div>
 
