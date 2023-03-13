@@ -1,0 +1,63 @@
+#scene {
+    width: 100vw;
+    min-height: calc(100vh * 30);
+
+    background-color: black;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#ufo {
+    position: absolute;
+    z-index: 1;
+
+    width: 200px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#capsule {
+    background: url('ufo.png') no-repeat center;
+    background-size: cover;
+
+    width: 200px;
+    height: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#elevation {
+    text-align: center;
+    font-size: small;
+}
+
+#steering {
+    width: 60px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#flame {
+    background: url("flame.gif") no-repeat center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    display: none;
+    transform: rotate(180deg)
+}
+
+#surface {
+    width: 100vw;
+
+    align-self: flex-start;
+
+    z-index: 0;
+    background-color: black;
+}

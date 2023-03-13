@@ -1,0 +1,63 @@
+
+div[vessel] {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.default {
+    width: 204px;
+    height: 204px;
+
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.v200x200 {
+    width: 200px;
+    height: 200px;
+}
+
+.v200x200clip {
+    width: 200px;
+    height: 200px;
+
+    clip-path: circle(50% at 140px);
+}
+
+.v320x160b {
+    width: 324px;
+    height: 164px;
+
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+    border-color: lightgrey;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.v325x325a {
+    width: 325px;
+    height: 325px;
+
+    clip-path: circle(50%);
+}
+
+@keyframes rotateAnimation {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.v400x800 {
+    width: 400px;
+    height: 800px;
+}

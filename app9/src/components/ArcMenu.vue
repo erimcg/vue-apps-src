@@ -98,7 +98,6 @@ onMounted(() => {
 
 
 <template>
-    <h3>Arc Menu</h3>
     <div id="svg-container">
         <svg id="button-ring"></svg>
         <div id="center"></div>

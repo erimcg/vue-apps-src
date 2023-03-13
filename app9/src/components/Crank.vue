@@ -10,7 +10,6 @@ let mouseDown = false;
 let rad = Math.PI * 1.75
 
 function rotateCrank(e) {
-    //if (e.target !== e.currentTarget) return;
     if (!mouseDown) return
 
     let bounds = apparatus.value.getBoundingClientRect();
@@ -46,9 +45,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section>
-        <h3>Crank</h3>
-
+    <section class="default">
         <div ref="apparatus" id="apparatus" @mousemove="rotateCrank">
             <div ref="crank" id="crank" ></div>
             <div id="wheel" ></div>
@@ -62,6 +59,15 @@ onMounted(() => {
 </template>
 
 <style>
+
+.default {
+    --border-color: #cecccc;
+}
+
+.dark {
+    --border-color: green
+}
+
 section {
     display: flex;
     align-items: center;
@@ -76,7 +82,7 @@ section {
     width: 70px;
     height: 100px;
 
-    border: solid 2px #cecccc;
+    border: solid 2px var(--border-color);
 }
 
 #fluid {
