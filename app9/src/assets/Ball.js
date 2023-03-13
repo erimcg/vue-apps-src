@@ -30,6 +30,13 @@ class Ball extends HTMLElement {
         this.rootElm.id = this.options.id
         this.rootElm.className = this.options.class
 
+        this.image = null
+        if (this.options.clipImage) {
+            this.img = document.createElement("img");
+            this.img.src = this.options.clipImage
+            this.rootElm.appendChild(this.img)
+        }
+
         if (this.options.hasOwnProperty("color")) {
             this.rootElm.style.backgroundColor = this.options.color
         }
@@ -65,28 +72,19 @@ class Ball extends HTMLElement {
 
                 this.rootElm.style.overflow = "hidden"
 
-                var img = document.createElement("img");
-                
-                    img.src = this.options.clipImage
-                    this.rootElm.appendChild(img)
+                let row = (numRows - 1) - Math.floor(id / numCols)
+                let col = (numCols - 1) - (id % numCols)
 
-                    let row = (numRows - 1) - Math.floor(id / numCols)
-                    let col = (numCols - 1) - (id % numCols)
-                    //let col = numCols - (id % numCols)
-                    //console.log("id: " + id + " row: " + row + ", col: " + col)
+                this.img.width = this.bWidth
+                this.img.height = this.bHeight
+                this.img.style.scale = `${numCols} ${numRows}`
+                this.img.style.position = "absolute"
 
-                    img.width = this.bWidth
-                    img.height = this.bHeight
+                let topOffset = numRows % 2 == 0 ? this.bHeight / 2 : 0
+                let leftOffset = numCols % 2 == 0 ? this.bWidth / 2 : 0
 
-                    img.style.scale = `${numCols} ${numRows}`
-
-                    img.style.position = "absolute"
-
-                    let topOffset = numRows % 2 == 0 ? this.bHeight / 2 : 0
-                    let leftOffset = numCols % 2 == 0 ? this.bWidth / 2 : 0
-
-                    img.style.left = ((Math.floor(numCols / 2) - col) * this.bWidth - leftOffset) + "px"
-                    img.style.top = ((Math.floor(numRows / 2) - row) * this.bHeight - topOffset) + "px"
+                this.img.style.left = ((Math.floor(numCols / 2) - col) * this.bWidth - leftOffset) + "px"
+                this.img.style.top = ((Math.floor(numRows / 2) - row) * this.bHeight - topOffset) + "px"
             }
 
             if (this.options.class == 'floor') {

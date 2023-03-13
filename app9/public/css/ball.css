@@ -39,38 +39,6 @@
     background-color: orangered;
 }
 
-.triangle {
-    width: 25px;
-    height: 25px;
-    border-radius: 25px;
-
-    background-color: green;
-    background: linear-gradient(to bottom right, #fff 0%, #fff 50%, green 50%, green 100%);
-    animation: sizeBorderRadiusAnimation 3s ease-in 0s infinite alternate;
-}
-
-@keyframes sizeBorderRadiusAnimation {
-    from {
-        background-size: 0%;
-        border-radius: 40px;
-    }
-
-    20% {
-        background-size: 0%;
-        border-radius: 40px;
-    }
-
-    80% {
-        background-size: 100%;
-        border-radius: 0px;
-    }
-
-    to {
-        background-size: 100%;
-        border-radius: 0px;
-    }
-}
-
 .mesh {
     width: 50px;
     height: 50px;

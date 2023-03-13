@@ -52,13 +52,6 @@ const bd5 = ref(null)
       </div>
     </div>
 
-    <div demo>
-      <button type="button" @click="bd5.loadBalls">Start</button>
-      <div balldrop>
-        <BallDrop ref="bd5" vClass="v400x800" bClass="box" :numBalls=200 :delay=100 clipImage="/images/swimsuit.png" />
-      </div>
-    </div>
-
   </main>
 </template>
 
