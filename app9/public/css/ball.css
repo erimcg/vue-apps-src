@@ -45,7 +45,7 @@
 
     border-radius: 25px;
 
-    background-image: url(images/mesh.webp);
+    background-image: url(../images/mesh.webp);
     background-size: cover;
 
     animation: sizeRotateAnimation 3s ease-in 0s infinite alternate both;

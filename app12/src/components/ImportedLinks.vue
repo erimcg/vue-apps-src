@@ -1,5 +1,6 @@
 <script setup>
-    import { websites } from '../assets/data.js'
+import { websites } from '../assets/data.js'
+    
 </script>
 
 <template>

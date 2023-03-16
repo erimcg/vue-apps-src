@@ -19,7 +19,7 @@
     <Logo />
     <main>
         <div v-if="display">
-            <h3>Awesome Tech Sites</h3>
+            <h3>Tech Sites</h3>
             <HardCodedLinks />
 
             <ImportedLinks />

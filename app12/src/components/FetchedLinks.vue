@@ -1,12 +1,18 @@
 <script async setup>
-    import { reactive } from 'vue'
+    import { reactive, watch } from 'vue'
     import { DataStore } from '../assets/DataStore.js'
     
     const websites = reactive({})
 
+    // links.json and links2.json are in public
     websites.value = await DataStore.getWebsites("./links.json")
 
+    watch(websites, async () => {
+        websites.value = await DataStore.getWebsites("./links2.json")
+    })
+
     function pressMe() {
+
         if (websites.value.link4) {
             delete websites.value.link4
         }
