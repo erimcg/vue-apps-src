@@ -2,7 +2,7 @@
     import Heading from '../components/Heading.vue';
 
     const props = defineProps(['main'])
-    props.main.style.backgroundColor = "#e6f2e4"
+    props.main.style.backgroundColor = "#f3e4b1"
 </script>
 
 <template>
