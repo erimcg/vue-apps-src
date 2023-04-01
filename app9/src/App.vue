@@ -1,8 +1,13 @@
 <script setup>
-/*import ArcMenu from './components/ArcMenu.vue'
+/*
+import ArcMenu from './components/ArcMenu.vue'
 import Crank from './components/Crank.vue'
-import BallDrop from './components/BallDrop.vue';*/
-import Lock from './components/Lock.vue';
+import BallDrop from './components/BallDrop.vue';
+import Lock from './components/Lock.vue'
+import Clock from './components/Clock.vue'
+*/
+
+import Rolodex from './components/Rolodex.vue';
 
 import { ref } from 'vue'
 
@@ -59,7 +64,7 @@ function hideSecret() {
             <div balldrop>
               <BallDrop ref="bd4" vClass="v200x200" bClass="grey-box" :delay=1000 :numBalls=25 clipImage="images/monkey.png" />
             </div>
-          </div-->
+          </div>
 
     <h3>Lock</h3>
     <div demo>
@@ -67,6 +72,16 @@ function hideSecret() {
       <div id="secret" ref="secret">
         <h1>Secrets Revealed</h1>
       </div>
+    </div>
+
+    <h3>Clock</h3>
+    <div>
+      <Clock />
+    </div-->
+
+    <h3>Rolodex</h3>
+    <div>
+      <Rolodex />
     </div>
 
   </main>
