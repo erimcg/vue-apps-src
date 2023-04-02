@@ -21,6 +21,7 @@ let velocity = 0
 
 onMounted(() => {
     let top = 0;
+    wheelTop = wheel.value.getBoundingClientRect().top
 
     for (let card of wheel.value.children) {
         card.style.top = top + "px"
@@ -31,18 +32,16 @@ onMounted(() => {
         let distFromCenter = Math.abs(wheelYCenter - rectTop)
 
         let scale = 0
-
         if (distFromCenter <= 400) {
             scale = Math.round((1 - (distFromCenter / 400)) * 100)
         }
-
         card.style.transform = `scale(${scale}%)`
 
-        let left = Math.round((distFromCenter / 400) * 125)
+        let leftOffset = (wheelYCenter - rectTop > 0) ? Math.pow((100 - scale) * 0.05, 3) : Math.pow((100 - scale) * -0.045, 3)
+        let left = Math.round((distFromCenter / 400) * 140) - leftOffset
         card.style.left = left + "px"
     }
 
-    wheelTop = wheel.value.getBoundingClientRect().top
     showCard.value = false
 })
 
@@ -62,15 +61,12 @@ async function rotateWheel(e) {
             let distFromCenter = Math.abs(wheelYCenter - rectTop)
 
             let scale = 0
-
             if (distFromCenter <= 400) {
                 scale = Math.round((1 - (distFromCenter / 400)) * 100)
             }
-
             card.style.transform = `scale(${scale}%)`
 
             let leftOffset = (wheelYCenter - rectTop > 0) ? Math.pow((100 - scale) * 0.05, 3) : Math.pow((100 - scale) * -0.045, 3)
-
             let left = Math.round((distFromCenter / 400) * 140) - leftOffset
             card.style.left = left + "px"
 
@@ -151,10 +147,10 @@ function hideCard() {
 
 <style>
 #rolodex {
-   display: flex;
-   flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-   align-items: center;
+    align-items: center;
 }
 
 #wheel {
