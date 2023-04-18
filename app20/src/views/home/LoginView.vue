@@ -1,20 +1,26 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user'
 
-import routes from '../../router/events.js'
+const userStore = useUserStore()
+
+//import routes from '../../router/events.js'
 
 const router = useRouter()
 
 function login() {
-    // assume the users credentials were validated
+    // Assume the users credentials were validated
 
-    router.removeRoute('home')
+    //router.removeRoute('home')
 
-    for (let route of routes) {
+    /*for (let route of routes) {
         router.addRoute(route)
+    }*/
+
+    if (userStore.validateUser('Eric', 'pass')) {
+        router.replace("/events")
     }
 
-    router.replace("/events")
 }
 
 </script>
